@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saiket Pro - To-Do Manager</title>
+    <link rel="stylesheet" href="CSS/Styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="header-section">
+            <div class="brand-logo">
+                <i class="fas fa-tasks"></i>
+                <h1>Saiket Pro</h1>
+            </div>
+            <div class="productivity-stats">
+                <span class="task-counter">
+                    <span id="completedCount">0</span>/<span id="totalCount">0</span> completed
+                </span>
+            </div>
+        </header>
+
+        <!-- Main Application Area -->
+        <main class="main-workspace">
+            <!-- Task Input Section -->
+            <section class="task-creation-panel">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="taskInputField" 
+                        placeholder="What needs to be accomplished today?"
+                        class="task-input-field"
+                        maxlength="100"
+                    >
+                    <button id="addTaskButton" class="add-task-btn" type="button">
+                        <i class="fas fa-plus"></i>
+                        <span>Add Task</span>
+                    </button>
+                </div>
+                <div class="input-helpers">
+                    <small class="character-limit">
+                        <span id="charCount">0</span>/100 characters
+                    </small>
+                </div>
+            </section>
+
+            <!-- Filter Controls -->
+            <section class="filter-controls">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-list"></i> All Tasks
+                    </button>
+                    <button class="filter-btn" data-filter="pending">
+                        <i class="fas fa-clock"></i> Pending
+                    </button>
+                    <button class="filter-btn" data-filter="completed">
+                        <i class="fas fa-check-circle"></i> Completed
+                    </button>
+                </div>
+                <div class="bulk-actions">
+                    <button id="clearCompletedBtn" class="clear-completed-btn">
+                        <i class="fas fa-trash-alt"></i> Clear Completed
+                    </button>
+                </div>
+            </section>
+
+            <!-- Task List Display -->
+            <section class="task-display-area">
+                <div id="taskListContainer" class="task-list-container">
+                    <!-- Tasks will be dynamically inserted here -->
+                </div>
+                <div id="emptyStateMessage" class="empty-state-message">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>No tasks yet!</h3>
+                    <p>Add your first task above to get started with your productivity journey.</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer Information -->
+        <footer class="app-footer">
+            <p>&copy; 2025 Saiket Pro - Enhancing your daily productivity</p>
+        </footer>
+    </div>
+
+    <!-- Task Edit Modal -->
+    <div id="editTaskModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Task</h3>
+                <button class="modal-close-btn" id="closeModalBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input 
+                    type="text" 
+                    id="editTaskInput" 
+                    class="edit-task-input"
+                    maxlength="100"
+                >
+                <div class="edit-char-count">
+                    <small><span id="editCharCount">0</span>/100 characters</small>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelEditBtn" class="cancel-btn">Cancel</button>
+                <button id="saveEditBtn" class="save-btn">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="App.js"></script>
+</body>
+</html>
